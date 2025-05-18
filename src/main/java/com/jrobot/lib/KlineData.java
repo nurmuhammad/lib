@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class KlineData implements Serializable {
-    String i;
+    String i; // interval
     Long ot;
     Long ct;
     BigDecimal o;
@@ -15,11 +15,15 @@ public class KlineData implements Serializable {
     boolean x;
     String b; //base
     String cp; //counter
+    BigDecimal qv; //quote volume
+    Long tradeCount;
+    BigDecimal buyBase; // taker buy base asset volume
+    BigDecimal buyQuote; // taker buy quote asset volume
 
     public KlineData() {
     }
 
-    public KlineData(String i, Long ot, Long ct, BigDecimal o, BigDecimal c, BigDecimal h, BigDecimal l, BigDecimal v, boolean x, String b, String cp) {
+    public KlineData(String i, Long ot, Long ct, BigDecimal o, BigDecimal c, BigDecimal h, BigDecimal l, BigDecimal v, boolean x, String b, String cp, BigDecimal qv, Long tradeCount, BigDecimal buyBase, BigDecimal buyQuote) {
         this.i = i;
         this.ot = ot;
         this.ct = ct;
@@ -31,6 +35,10 @@ public class KlineData implements Serializable {
         this.x = x;
         this.b = b;
         this.cp = cp;
+        this.qv = qv;
+        this.tradeCount = tradeCount;
+        this.buyBase = buyBase;
+        this.buyQuote = buyQuote;
     }
 
     public String getI() {
@@ -119,5 +127,37 @@ public class KlineData implements Serializable {
 
     public void setCp(String cp) {
         this.cp = cp;
+    }
+
+    public BigDecimal getQv() {
+        return qv;
+    }
+
+    public void setQv(BigDecimal qv) {
+        this.qv = qv;
+    }
+
+    public Long getTradeCount() {
+        return tradeCount;
+    }
+
+    public void setTradeCount(Long tradeCount) {
+        this.tradeCount = tradeCount;
+    }
+
+    public BigDecimal getBuyBase() {
+        return buyBase;
+    }
+
+    public void setBuyBase(BigDecimal buyBase) {
+        this.buyBase = buyBase;
+    }
+
+    public BigDecimal getBuyQuote() {
+        return buyQuote;
+    }
+
+    public void setBuyQuote(BigDecimal buyQuote) {
+        this.buyQuote = buyQuote;
     }
 }
