@@ -1,9 +1,14 @@
 package com.jrobot.lib;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class KlineData implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 541434532453435542L;
+
     String i; // interval
     Long ot;
     Long ct;

@@ -1,8 +1,13 @@
 package com.jrobot.lib;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Symbol implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1453750327189350542L;
+
     String b; //base
     String cp; //counter
     String i; // interval
