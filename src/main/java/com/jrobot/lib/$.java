@@ -133,4 +133,16 @@ public class $ {
         }
         return false;
     }
+
+    public static boolean containsIgnoreCase(String content, String... searchStrings) {
+        if (content == null || searchStrings == null) return false;
+        String contentLower = content.toLowerCase();
+        for (String searchString : searchStrings) {
+            if (searchString == null) continue;
+            if (contentLower.contains(searchString.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
