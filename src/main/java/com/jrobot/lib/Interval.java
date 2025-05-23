@@ -27,6 +27,9 @@ public interface Interval {
             HOUR_1, HOUR_2, HOUR_4, HOUR_6, HOUR_8, HOUR_12,
             DAY_1, DAY_3, WEEK_1, MONTH_1};
 
+    String[] ALL_INTERVALS_WS_ARRAY = new String[]{MINUTE_3, MINUTE_5, MINUTE_15, MINUTE_30, HOUR_1, HOUR_2, HOUR_4};
+    String[] ALL_INTERVALS_KLINE_ARRAY = new String[]{HOUR_6, HOUR_8, HOUR_12, DAY_1, DAY_3, WEEK_1, MONTH_1};
+
     static String next(String interval) {
         return switch (interval) {
             case MINUTE_1 -> MINUTE_3;
