@@ -165,4 +165,15 @@ public class KlineData implements Serializable {
     public void setBuyQuote(BigDecimal buyQuote) {
         this.buyQuote = buyQuote;
     }
+
+    @Override
+    public String toString() {
+        return "KlineData{" +
+                "b='" + b + '\'' +
+                ", cp='" + cp + '\'' +
+                ", i='" + i + '\'' +
+                ", ot=" + ot +
+                ", price=" + c +
+                '}';
+    }
 }
