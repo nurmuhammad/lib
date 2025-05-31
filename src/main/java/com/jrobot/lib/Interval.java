@@ -70,4 +70,24 @@ public interface Interval {
         };
     }
 
+    static int getDurationInSecond(String interval) {
+        return switch (interval) {
+            case MINUTE_1 -> 60;
+            case MINUTE_3 -> 3 * 60;
+            case MINUTE_5 -> 5 * 60;
+            case MINUTE_15 -> 15 * 60;
+            case MINUTE_30 -> 30 * 60;
+            case HOUR_1 -> 60 * 60;
+            case HOUR_2 -> 2 * 60 * 60;
+            case HOUR_4 -> 4 * 60 * 60;
+            case HOUR_6 -> 6 * 60 * 60;
+            case HOUR_8 -> 8 * 60 * 60;
+            case HOUR_12 -> 12 * 60 * 60;
+            case DAY_1 -> 24 * 60 * 60;
+            case DAY_3 -> 3 * 24 * 60 * 60;
+            case WEEK_1 -> 7 * 24 * 60 * 60;
+            case MONTH_1 -> 30 * 24 * 60 * 60;
+            default -> -1;
+        };
+    }
 }
