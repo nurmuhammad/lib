@@ -176,4 +176,8 @@ public class KlineData implements Serializable {
                 ", price=" + c +
                 '}';
     }
+
+    public String name() {
+        return b.toUpperCase() + cp.toUpperCase() + "_" + i + "_" + ot;
+    }
 }
