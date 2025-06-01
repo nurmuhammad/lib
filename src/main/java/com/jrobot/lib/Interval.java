@@ -1,5 +1,7 @@
 package com.jrobot.lib;
 
+import java.time.Duration;
+
 public interface Interval {
 
     String MINUTE_1 = "1m";
@@ -89,5 +91,9 @@ public interface Interval {
             case MONTH_1 -> 30 * 24 * 60 * 60;
             default -> -1;
         };
+    }
+
+    static Duration duration(String interval) {
+        return Duration.ofSeconds(getDurationInSecond(interval));
     }
 }
