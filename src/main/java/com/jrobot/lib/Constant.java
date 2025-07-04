@@ -15,6 +15,7 @@ public interface Constant {
     String HAZELCAST_WS_3 = "ws_3";
     String HAZELCAST_WS_4 = "ws_4";
     String HAZELCAST_WS_5 = "ws_5";
+    String HAZELCAST_WS_6 = "ws_6";
     String HAZELCAST_WS_RECONNECT = "ws_reconnect";
 
 }
