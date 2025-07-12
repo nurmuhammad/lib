@@ -2,12 +2,16 @@ package com.jrobot.lib;
 
 import java.net.URL;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
 
 public class $ {
 
     private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static boolean isEmail(String email) {
         if (email == null)
@@ -145,10 +149,20 @@ public class $ {
         }
         return false;
     }
-    
-    public static boolean equalsIgnoreCase(String string1, String string2 ) {
+
+    public static boolean equalsIgnoreCase(String string1, String string2) {
         if (string1 == null && string2 == null) return true;
         if (string1 == null || string2 == null) return false;
         return string1.equalsIgnoreCase(string2);
+    }
+
+    public static String toReadbleString(Instant now) {
+        ZonedDateTime tashkentTime = now.atZone(ZoneId.of("Asia/Tashkent"));
+        return DATE_TIME_FORMATTER.format(tashkentTime);
+    }
+
+    public static String toReadbleString(Instant now, String zone) {
+        ZonedDateTime tashkentTime = now.atZone(ZoneId.of(zone));
+        return DATE_TIME_FORMATTER.format(tashkentTime);
     }
 }
