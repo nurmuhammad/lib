@@ -156,12 +156,12 @@ public class $ {
         return string1.equalsIgnoreCase(string2);
     }
 
-    public static String toReadbleString(Instant now) {
+    public static String toReadableString(Instant now) {
         ZonedDateTime tashkentTime = now.atZone(ZoneId.of("Asia/Tashkent"));
         return DATE_TIME_FORMATTER.format(tashkentTime);
     }
 
-    public static String toReadbleString(Instant now, String zone) {
+    public static String toReadableString(Instant now, String zone) {
         ZonedDateTime tashkentTime = now.atZone(ZoneId.of(zone));
         return DATE_TIME_FORMATTER.format(tashkentTime);
     }
