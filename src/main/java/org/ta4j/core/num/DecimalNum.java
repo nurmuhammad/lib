@@ -51,6 +51,22 @@ import org.slf4j.LoggerFactory;
  */
 public final class DecimalNum implements Num {
 
+    private static final DecimalNum MINUS_ONE = DecimalNum.valueOf(-1, new MathContext(1));
+    private static final DecimalNum ZERO = DecimalNum.valueOf(0, new MathContext(1));
+    private static final DecimalNum ONE = DecimalNum.valueOf(1, new MathContext(1));
+    private static final DecimalNum TWO = DecimalNum.valueOf(2, new MathContext(1));
+    private static final DecimalNum THREE = DecimalNum.valueOf(3, new MathContext(1));
+    private static final DecimalNum HUNDRED = DecimalNum.valueOf(100, new MathContext(3));
+    private static final DecimalNum THOUSAND = DecimalNum.valueOf(1000, new MathContext(4));
+
+    private static final DecimalNum N10 = DecimalNum.valueOf(10, new MathContext(2));
+    private static final DecimalNum N15 = DecimalNum.valueOf(15, new MathContext(2));
+    private static final DecimalNum N20 = DecimalNum.valueOf(20, new MathContext(2));
+    private static final DecimalNum N25 = DecimalNum.valueOf(25, new MathContext(2));
+    private static final DecimalNum N30 = DecimalNum.valueOf(30, new MathContext(2));
+    private static final DecimalNum N40 = DecimalNum.valueOf(40, new MathContext(2));
+
+
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(DecimalNum.class);
 
