@@ -51,20 +51,32 @@ import org.slf4j.LoggerFactory;
  */
 public final class DecimalNum implements Num {
 
-    private static final DecimalNum MINUS_ONE = DecimalNum.valueOf(-1, new MathContext(1));
-    private static final DecimalNum ZERO = DecimalNum.valueOf(0, new MathContext(1));
-    private static final DecimalNum ONE = DecimalNum.valueOf(1, new MathContext(1));
-    private static final DecimalNum TWO = DecimalNum.valueOf(2, new MathContext(1));
-    private static final DecimalNum THREE = DecimalNum.valueOf(3, new MathContext(1));
-    private static final DecimalNum HUNDRED = DecimalNum.valueOf(100, new MathContext(3));
-    private static final DecimalNum THOUSAND = DecimalNum.valueOf(1000, new MathContext(4));
+    public static final DecimalNum MINUS_ONE = DecimalNum.valueOf(-1, new MathContext(1));
+    public static final DecimalNum ZERO = DecimalNum.valueOf(0, new MathContext(1));
+    public static final DecimalNum ONE = DecimalNum.valueOf(1, new MathContext(1));
+    public static final DecimalNum TWO = DecimalNum.valueOf(2, new MathContext(1));
+    public static final DecimalNum THREE = DecimalNum.valueOf(3, new MathContext(1));
+    public static final DecimalNum HUNDRED = DecimalNum.valueOf(100, new MathContext(3));
+    public static final DecimalNum THOUSAND = DecimalNum.valueOf(1000, new MathContext(4));
 
-    private static final DecimalNum N10 = DecimalNum.valueOf(10, new MathContext(2));
-    private static final DecimalNum N15 = DecimalNum.valueOf(15, new MathContext(2));
-    private static final DecimalNum N20 = DecimalNum.valueOf(20, new MathContext(2));
-    private static final DecimalNum N25 = DecimalNum.valueOf(25, new MathContext(2));
-    private static final DecimalNum N30 = DecimalNum.valueOf(30, new MathContext(2));
-    private static final DecimalNum N40 = DecimalNum.valueOf(40, new MathContext(2));
+    public static final DecimalNum N10 = DecimalNum.valueOf(10, new MathContext(2));
+    public static final DecimalNum N15 = DecimalNum.valueOf(15, new MathContext(2));
+    public static final DecimalNum N20 = DecimalNum.valueOf(20, new MathContext(2));
+    public static final DecimalNum N25 = DecimalNum.valueOf(25, new MathContext(2));
+    public static final DecimalNum N30 = DecimalNum.valueOf(30, new MathContext(2));
+    public static final DecimalNum N35 = DecimalNum.valueOf(35, new MathContext(2));
+    public static final DecimalNum N40 = DecimalNum.valueOf(40, new MathContext(2));
+    public static final DecimalNum N45 = DecimalNum.valueOf(45, new MathContext(2));
+    public static final DecimalNum N50 = DecimalNum.valueOf(50, new MathContext(2));
+    public static final DecimalNum N55 = DecimalNum.valueOf(55, new MathContext(2));
+    public static final DecimalNum N60 = DecimalNum.valueOf(60, new MathContext(2));
+    public static final DecimalNum N65 = DecimalNum.valueOf(65, new MathContext(2));
+    public static final DecimalNum N70 = DecimalNum.valueOf(70, new MathContext(2));
+    public static final DecimalNum N75 = DecimalNum.valueOf(75, new MathContext(2));
+    public static final DecimalNum N80 = DecimalNum.valueOf(80, new MathContext(2));
+    public static final DecimalNum N85 = DecimalNum.valueOf(85, new MathContext(2));
+    public static final DecimalNum N90 = DecimalNum.valueOf(90, new MathContext(2));
+    public static final DecimalNum N95 = DecimalNum.valueOf(95, new MathContext(2));
 
 
     private static final long serialVersionUID = 1L;
