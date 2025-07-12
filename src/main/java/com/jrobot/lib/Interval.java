@@ -1,6 +1,7 @@
 package com.jrobot.lib;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 public interface Interval {
 
@@ -95,5 +96,12 @@ public interface Interval {
 
     static Duration duration(String interval) {
         return Duration.ofSeconds(getDurationInSecond(interval));
+    }
+
+    static String[] split(String intervals) {
+        return (String[]) Arrays.stream(intervals.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .distinct().toArray();
     }
 }
