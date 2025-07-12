@@ -99,9 +99,9 @@ public interface Interval {
     }
 
     static String[] split(String intervals) {
-        return (String[]) Arrays.stream(intervals.split(","))
+        return Arrays.stream(intervals.split(","))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
-                .distinct().toArray();
+                .distinct().toArray(String[]::new);
     }
 }
