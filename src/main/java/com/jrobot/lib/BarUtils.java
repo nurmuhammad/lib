@@ -15,17 +15,21 @@ import java.util.List;
 public class BarUtils {
 
     public static BarSeries barSeries(HazelcastInstance hazelcastInstance, String klineMapName) {
-        IMap<String, KlineData> klineDataMap_30m = hazelcastInstance.getMap(klineMapName);
-        ArrayList<KlineData> klineDataList = new ArrayList<>(klineDataMap_30m.values());
-        klineDataList.sort(Comparator.comparing(KlineData::getOt));
+        try {
+            IMap<String, KlineData> klineDataMap_30m = hazelcastInstance.getMap(klineMapName);
+            ArrayList<KlineData> klineDataList = new ArrayList<>(klineDataMap_30m.values());
+            klineDataList.sort(Comparator.comparing(KlineData::getOt));
 
-        List<Bar> bars = new ArrayList<>(klineDataList.size());
-        for (KlineData k : klineDataList) {
-            BaseBar2 bar2 = new BaseBar2(k.getI(), k.getOt(), k.getCt(), k.getO(), k.getH(), k.getL(), k.getC(), k.getV(), k.getQv(), k.getTradeCount(), k.name(), k.isX());
-            bars.add(bar2);
+            List<Bar> bars = new ArrayList<>(klineDataList.size());
+            for (KlineData k : klineDataList) {
+                BaseBar2 bar2 = new BaseBar2(k.getI(), k.getOt(), k.getCt(), k.getO(), k.getH(), k.getL(), k.getC(), k.getV(), k.getQv(), k.getTradeCount(), k.name(), k.isX());
+                bars.add(bar2);
+            }
+
+            return new BaseBarSeriesBuilder().withBars(bars).withName(klineMapName).build();
+        } catch (Exception e) {
+            return null;
         }
-
-        return new BaseBarSeriesBuilder().withBars(bars).withName(klineMapName).build();
 
     }
 
