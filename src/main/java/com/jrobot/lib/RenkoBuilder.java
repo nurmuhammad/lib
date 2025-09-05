@@ -36,7 +36,7 @@ public class RenkoBuilder {
 
 
         NumFactory nf = input.numFactory();
-        final Duration brickDuration = Duration.ofSeconds(1);
+        final Duration brickDuration = input.getBar(input.getEndIndex()).getTimePeriod();
         final Num ZERO = nf.zero();
         Num atrMultiplierNum = nf.numOf(atrMultiplier);
 
