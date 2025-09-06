@@ -5,6 +5,7 @@ import org.ta4j.core.Bar;
 import org.ta4j.core.BaseBar;
 import org.ta4j.core.num.DecimalNum;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -107,10 +108,9 @@ public class OHLCV {
         this.volume = volume;
     }
 
-    public Bar getBar(String interval) {
-
+    public Bar getBar(Duration duration) {
         return new BaseBar(
-                Interval.duration(interval),
+                duration,
                 (Instant) getDatetime(),
                 DecimalNum.valueOf(open),
                 DecimalNum.valueOf(high),
@@ -120,6 +120,10 @@ public class OHLCV {
                 DecimalNum.valueOf(0),
                 0
         );
+    }
+
+    public Bar getBar(String interval) {
+        return getBar(Interval.duration(interval));
     }
 
     @Override
