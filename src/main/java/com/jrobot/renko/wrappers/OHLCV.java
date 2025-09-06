@@ -1,7 +1,11 @@
 package com.jrobot.renko.wrappers;
 
+import com.jrobot.lib.Interval;
 import org.ta4j.core.Bar;
+import org.ta4j.core.BaseBar;
+import org.ta4j.core.num.DecimalNum;
 
+import java.time.Instant;
 import java.util.Objects;
 
 public class OHLCV {
@@ -17,7 +21,7 @@ public class OHLCV {
     }
 
     public OHLCV(Bar bar) {
-        this.datetime = bar.getBeginTime();
+        this.datetime = bar.getEndTime();
         this.open = bar.getOpenPrice().doubleValue();
         this.high = bar.getHighPrice().doubleValue();
         this.low = bar.getLowPrice().doubleValue();
@@ -103,8 +107,19 @@ public class OHLCV {
         this.volume = volume;
     }
 
-    public Bar getBar() {
-        return null;
+    public Bar getBar(String interval) {
+
+        return new BaseBar(
+                Interval.duration(interval),
+                (Instant) getDatetime(),
+                DecimalNum.valueOf(open),
+                DecimalNum.valueOf(high),
+                DecimalNum.valueOf(low),
+                DecimalNum.valueOf(close),
+                DecimalNum.valueOf(volume),
+                DecimalNum.valueOf(0),
+                0
+        );
     }
 
     @Override
