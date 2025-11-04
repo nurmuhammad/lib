@@ -57,12 +57,20 @@ public class BarUtils {
     }
 
     public static BarSeries renkoBarSeriesAtr(BarSeries barSeries, int atrPeriod, double atrMultiplier) {
+        return renkoBarSeriesAtr(barSeries, atrPeriod, atrMultiplier, -1);
+    }
+
+    public static BarSeries renkoBarSeriesAtr(BarSeries barSeries, int atrPeriod, double atrMultiplier, int returnBarSize) {
         ATRIndicator atr = new ATRIndicator(barSeries, atrPeriod);
         double brickSize = atr.getValue(barSeries.getEndIndex()).doubleValue() * atrMultiplier;
-        return renkoBarSeries(barSeries, brickSize);
+        return renkoBarSeries(barSeries, brickSize, returnBarSize);
     }
 
     public static BarSeries renkoBarSeries(BarSeries barSeries, double brickSize) {
+        return renkoBarSeries(barSeries, brickSize, -1);
+    }
+
+    public static BarSeries renkoBarSeries(BarSeries barSeries, double brickSize, int returnBarSize) {
         List<OHLCV> ohlcvList = new ArrayList<>(barSeries.getBarCount());
         for (int i = 0; i < barSeries.getBarCount(); i++) {
             ohlcvList.add(new OHLCV(barSeries.getBar(i)));
@@ -70,7 +78,9 @@ public class BarUtils {
 
         Renko renko = new Renko(ohlcvList, brickSize);
         List<OHLCV> list = renko.renkodf("wicks");
-        List<Bar> listBars = new ArrayList<>(list.size());
+        returnBarSize = returnBarSize <= 0 ? list.size() : returnBarSize;
+        returnBarSize = Math.min(returnBarSize, list.size());
+        List<Bar> listBars = new ArrayList<>(returnBarSize);
 
         Duration duration = barSeries.getFirstBar().getTimePeriod();
         Instant endTime = barSeries.getFirstBar().getEndTime();
@@ -83,6 +93,9 @@ public class BarUtils {
                     DecimalNum.valueOf(ohlcv.getVolume()),
                     DecimalNum.valueOf(0), 0L);
             listBars.add(bar);
+            if (listBars.size() >= returnBarSize) {
+                break;
+            }
             endTime = endTime.plus(duration);
         }
 
