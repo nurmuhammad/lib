@@ -8,6 +8,9 @@ public interface Constant {
     String HAZELCAST_SYMBOL_QUEUE = "symbolQueue";
     String HAZELCAST_SYMBOL_LAST_PRICE = "symbolLastPrice";
 
+    String HAZELCAST_SIGNAL_RENKO_TOPIC = "signalRenkoTopic";
+    String HAZELCAST_OPENED_ORDER_RENKO_PAIR = "openedOrderRenkoPair";
+
     String HAZELCAST_KLINE_MAP = "klineMap";
 
     String HAZELCAST_WS_MAP = "wsMap";
