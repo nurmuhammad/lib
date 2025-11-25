@@ -1,12 +1,15 @@
 package com.jrobot.lib;
 
 
+import com.google.gson.Gson;
+
 import java.io.Serial;
 import java.io.Serializable;
 
 public class Signal implements Serializable {
     @Serial
     private static final long serialVersionUID = 8274132466435110L;
+    private static final Gson GSON = new Gson();
 
     String base;
     String counter;
@@ -61,5 +64,13 @@ public class Signal implements Serializable {
     @Override
     public String toString() {
         return String.format("%S/%S %S", base, counter, strategy);
+    }
+
+    public String toJson() {
+        return GSON.toJson(this);
+    }
+
+    public static Signal fromJson(String json) {
+        return GSON.fromJson(json, Signal.class);
     }
 }
