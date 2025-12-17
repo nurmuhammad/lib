@@ -19,6 +19,10 @@ public class Signal implements Serializable {
 
     public Signal(String base, String counter, String interval, String strategy, String data) {
         this.base = base;
+        this.counter = counter;
+        this.interval = interval;
+        this.strategy = strategy;
+        this.data = data;
     }
 
     public String getBase() {
