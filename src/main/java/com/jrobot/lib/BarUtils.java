@@ -81,6 +81,8 @@ public class BarUtils {
         returnBarSize = returnBarSize <= 0 ? list.size() : returnBarSize;
         returnBarSize = Math.min(returnBarSize, list.size());
         List<Bar> listBars = new ArrayList<>(returnBarSize);
+        int startIndex = list.size() - returnBarSize;
+        list = new ArrayList<>(list.subList(startIndex, list.size()));
 
         Duration duration = barSeries.getFirstBar().getTimePeriod();
         Instant endTime = barSeries.getFirstBar().getEndTime();
@@ -93,9 +95,6 @@ public class BarUtils {
                     DecimalNum.valueOf(ohlcv.getVolume()),
                     DecimalNum.valueOf(0), 0L);
             listBars.add(bar);
-            if (listBars.size() >= returnBarSize) {
-                break;
-            }
             endTime = endTime.plus(duration);
         }
 
