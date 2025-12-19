@@ -11,6 +11,8 @@ public interface Constant {
     String HAZELCAST_SIGNAL_RENKO_TOPIC = "signalRenkoTopic";
     String HAZELCAST_OPENED_ORDER_RENKO_PAIR = "openedOrderRenkoPair";
 
+    String HAZELCAST_OPENED_ORDER_BAR_MAP = "openedOrderBarMap";
+
     String HAZELCAST_KLINE_MAP = "klineMap";
 
     String HAZELCAST_WS_MAP = "wsMap";
