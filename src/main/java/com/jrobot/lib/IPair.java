@@ -7,4 +7,8 @@ public interface IPair {
     default String toPairString() {
         return getBase() + "/" + getCounter();
     }
+
+    default String toBinanceSymbol() {
+        return getBase().toUpperCase() + getCounter().toUpperCase();
+    }
 }
