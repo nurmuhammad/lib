@@ -3,7 +3,7 @@ package com.jrobot.lib;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class Symbol implements Serializable {
+public class Symbol implements Serializable, IPair {
 
     @Serial
     private static final long serialVersionUID = 1453750327189350542L;
@@ -58,5 +58,15 @@ public class Symbol implements Serializable {
     @Override
     public String toString() {
         return "Symbol{" + b.toUpperCase() + '/' + cp.toUpperCase() + '_' + i + ", limit=" + limit + '}';
+    }
+
+    @Override
+    public String getBase() {
+        return b;
+    }
+
+    @Override
+    public String getCounter() {
+        return cp;
     }
 }

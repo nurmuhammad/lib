@@ -7,7 +7,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Signal implements Serializable {
+public class Signal implements Serializable, IPair {
     @Serial
     private static final long serialVersionUID = 8274132466435110L;
     private static final Gson GSON = new Gson();
