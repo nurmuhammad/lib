@@ -18,6 +18,7 @@ public class Signal implements Serializable {
     String strategy;
     BigDecimal takeProfit;
     BigDecimal stopLoss;
+
     String data;
 
     public Signal(String base, String counter, String interval, String strategy, BigDecimal takeProfit, BigDecimal stopLoss, String data) {
