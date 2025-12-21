@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Signal implements Serializable {
     @Serial
@@ -15,13 +16,17 @@ public class Signal implements Serializable {
     String counter;
     String interval;
     String strategy;
+    BigDecimal takeProfit;
+    BigDecimal stopLoss;
     String data;
 
-    public Signal(String base, String counter, String interval, String strategy, String data) {
+    public Signal(String base, String counter, String interval, String strategy, BigDecimal takeProfit, BigDecimal stopLoss, String data) {
         this.base = base;
         this.counter = counter;
         this.interval = interval;
         this.strategy = strategy;
+        this.takeProfit = takeProfit;
+        this.stopLoss = stopLoss;
         this.data = data;
     }
 
@@ -55,6 +60,22 @@ public class Signal implements Serializable {
 
     public void setStrategy(String strategy) {
         this.strategy = strategy;
+    }
+
+    public BigDecimal getTakeProfit() {
+        return takeProfit;
+    }
+
+    public void setTakeProfit(BigDecimal takeProfit) {
+        this.takeProfit = takeProfit;
+    }
+
+    public BigDecimal getStopLoss() {
+        return stopLoss;
+    }
+
+    public void setStopLoss(BigDecimal stopLoss) {
+        this.stopLoss = stopLoss;
     }
 
     public String getData() {
