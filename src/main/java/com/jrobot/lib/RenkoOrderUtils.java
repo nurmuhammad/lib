@@ -23,4 +23,13 @@ public class RenkoOrderUtils {
         return renkoOrderSet.contains(renkoOrder);
     }
 
+    public static void addOrder(HazelcastInstance hazelcastInstance, IPair pair) {
+        addOrder(hazelcastInstance, pair.getBase(), pair.getCounter());
+    }
+
+    public static void addOrder(HazelcastInstance hazelcastInstance, String base, String counter) {
+        String renkoOrder = "RENKO_ORDER_" + base + "_" + counter;
+        hazelcastInstance.getSet(Constant.HAZELCAST_OPENED_ORDER_RENKO_PAIR).add(renkoOrder);
+    }
+
 }

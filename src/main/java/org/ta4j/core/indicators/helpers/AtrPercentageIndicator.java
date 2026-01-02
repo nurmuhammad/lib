@@ -3,9 +3,10 @@ package org.ta4j.core.indicators.helpers;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.indicators.ATRIndicator;
 import org.ta4j.core.indicators.AbstractIndicator;
+import org.ta4j.core.indicators.CachedIndicator;
 import org.ta4j.core.num.Num;
 
-public class AtrPercentageIndicator extends AbstractIndicator<Num> {
+public class AtrPercentageIndicator extends CachedIndicator<Num> {
     ATRIndicator atrIndicator;
     int barCount;
 
@@ -16,7 +17,7 @@ public class AtrPercentageIndicator extends AbstractIndicator<Num> {
     }
 
     @Override
-    public Num getValue(int i) {
+    protected Num calculate(int i) {
         if (i < barCount) {
             return null;
         }
