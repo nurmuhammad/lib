@@ -71,6 +71,10 @@ public class BarUtils {
     }
 
     public static BarSeries renkoBarSeries(BarSeries barSeries, double brickSize, int returnBarSize) {
+        return renkoBarSeries(barSeries, brickSize, returnBarSize, false);
+    }
+
+    public static BarSeries renkoBarSeries(BarSeries barSeries, double brickSize, int returnBarSize, boolean forGraphic) {
         List<OHLCV> ohlcvList = new ArrayList<>(barSeries.getBarCount());
         for (int i = 0; i < barSeries.getBarCount(); i++) {
             ohlcvList.add(new OHLCV(barSeries.getBar(i)));
@@ -86,6 +90,9 @@ public class BarUtils {
         Instant endTime = barSeries.getFirstBar().getEndTime();
         for (int i = list.size() - returnBarSize; i < list.size(); i++) {
             OHLCV ohlcv = list.get(i);
+            if (forGraphic) {
+                endTime = (Instant) ohlcv.getDatetime();
+            }
             Bar bar = new BaseBar(duration, endTime,
                     DecimalNum.valueOf(ohlcv.getOpen()),
                     DecimalNum.valueOf(ohlcv.getHigh()),
@@ -94,7 +101,9 @@ public class BarUtils {
                     DecimalNum.valueOf(ohlcv.getVolume()),
                     DecimalNum.valueOf(0), 0L);
             listBars.add(bar);
-            endTime = endTime.plus(duration);
+            if (!forGraphic) {
+                endTime = endTime.plus(duration);
+            }
         }
 
         return new BaseBarSeriesBuilder().withBars(listBars).withName(barSeries.getName()).build();
